@@ -1,0 +1,87 @@
+openapi: 3.0.0
+info:
+  title: Config API
+  version: 1.0.0
+servers:
+- url: /
+paths:
+  /config/access-and-mobility:
+    get:
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessAndMobilityConfigResponse'
+          description: Successful response
+      summary: Get Access and Mobility Configuration
+components:
+  schemas:
+    AccessAndMobilityConfigResponse:
+      example:
+        configs:
+        - snssai:
+            sd: sd
+            sst: sst
+          plmnId:
+            mnc: mnc
+            mcc: mcc
+          tacs:
+          - 0
+          - 0
+        - snssai:
+            sd: sd
+            sst: sst
+          plmnId:
+            mnc: mnc
+            mcc: mcc
+          tacs:
+          - 0
+          - 0
+      properties:
+        configs:
+          items:
+            $ref: '#/components/schemas/AccessAndMobilityConfig'
+          type: array
+      type: object
+    AccessAndMobilityConfig:
+      example:
+        snssai:
+          sd: sd
+          sst: sst
+        plmnId:
+          mnc: mnc
+          mcc: mcc
+        tacs:
+        - 0
+        - 0
+      properties:
+        plmnId:
+          $ref: '#/components/schemas/PlmnId'
+        snssai:
+          $ref: '#/components/schemas/Snssai'
+        tacs:
+          items:
+            type: integer
+          type: array
+      type: object
+    PlmnId:
+      example:
+        mnc: mnc
+        mcc: mcc
+      properties:
+        mcc:
+          type: string
+        mnc:
+          type: string
+      type: object
+    Snssai:
+      example:
+        sd: sd
+        sst: sst
+      properties:
+        sst:
+          type: string
+        sd:
+          type: string
+      type: object

@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+package config;
+
+option go_package = "api;aether_config";
+
+message PlmnId {
+  string mcc = 1;
+  string mnc = 2;
+}
+
+message Snssai {
+  string sst = 1;
+  string sd = 2;
+}
+
+message AccessAndMobilityConfig {
+  PlmnId plmn_id = 1;
+  Snssai snssai = 2;
+  repeated int32 tacs = 3;
+}
+
+message EmptyRequest {}
+
+message AccessAndMobilityConfigResponse {
+  repeated AccessAndMobilityConfig configs = 1;
+}
+
+service ConfigService {
+  rpc GetAccessAndMobilityConfig(EmptyRequest) returns (AccessAndMobilityConfigResponse);
+}
