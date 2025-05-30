@@ -9,9 +9,11 @@
 
 package openapi
 
-type PlmnId struct {
+type AccessAndMobility struct {
 
-	Mcc string `json:"mcc,omitempty"`
+	PlmnId PlmnId `json:"plmnId,omitempty"`
 
-	Mnc string `json:"mnc,omitempty"`
+	Snssai Snssai `json:"snssai,omitempty"`
+
+	Tacs []string `json:"tacs,omitempty"`
 }

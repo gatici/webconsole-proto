@@ -9,9 +9,9 @@
 
 package openapi
 
-type PlmnId struct {
+type Upf struct {
 
-	Mcc string `json:"mcc,omitempty"`
+	Hostname string `json:"hostname,omitempty"`
 
-	Mnc string `json:"mnc,omitempty"`
+	Port int32 `json:"port,omitempty"`
 }

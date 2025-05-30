@@ -9,9 +9,9 @@
 
 package openapi
 
-type PlmnId struct {
+type PlmnSnssai struct {
 
-	Mcc string `json:"mcc,omitempty"`
+	PlmnId PlmnId `json:"plmnId,omitempty"`
 
-	Mnc string `json:"mnc,omitempty"`
+	Snssais []Snssai `json:"snssais,omitempty"`
 }

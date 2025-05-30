@@ -9,9 +9,13 @@
 
 package openapi
 
-type PlmnId struct {
+type PccQos struct {
 
-	Mcc string `json:"mcc,omitempty"`
+	FiveQi int32 `json:"fiveQi,omitempty"`
 
-	Mnc string `json:"mnc,omitempty"`
+	MaxBrUl string `json:"maxBrUl,omitempty"`
+
+	MaxBrDl string `json:"maxBrDl,omitempty"`
+
+	Arp Arp `json:"arp,omitempty"`
 }

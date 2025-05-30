@@ -9,9 +9,11 @@
 
 package openapi
 
-type PlmnId struct {
+type Arp struct {
 
-	Mcc string `json:"mcc,omitempty"`
+	PriorityLevel int32 `json:"priorityLevel,omitempty"`
 
-	Mnc string `json:"mnc,omitempty"`
+	Pc string `json:"pc,omitempty"`
+
+	Pv string `json:"pv,omitempty"`
 }

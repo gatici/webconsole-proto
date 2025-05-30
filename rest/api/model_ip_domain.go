@@ -9,9 +9,13 @@
 
 package openapi
 
-type PlmnId struct {
+type IpDomain struct {
 
-	Mcc string `json:"mcc,omitempty"`
+	DnnName string `json:"dnnName,omitempty"`
 
-	Mnc string `json:"mnc,omitempty"`
+	DnsIpv4 string `json:"dnsIpv4,omitempty"`
+
+	UeSubnet string `json:"ueSubnet,omitempty"`
+
+	Mtu int32 `json:"mtu,omitempty"`
 }

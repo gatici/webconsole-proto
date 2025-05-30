@@ -9,9 +9,13 @@
 
 package openapi
 
-type PlmnId struct {
+type PccRule struct {
 
-	Mcc string `json:"mcc,omitempty"`
+	RuleId string `json:"ruleId,omitempty"`
 
-	Mnc string `json:"mnc,omitempty"`
+	Flows []PccFlow `json:"flows,omitempty"`
+
+	Qos PccQos `json:"qos,omitempty"`
+
+	Precedence int32 `json:"precedence,omitempty"`
 }

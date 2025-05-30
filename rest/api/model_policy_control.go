@@ -9,9 +9,13 @@
 
 package openapi
 
-type PlmnId struct {
+type PolicyControl struct {
 
-	Mcc string `json:"mcc,omitempty"`
+	PlmnId PlmnId `json:"plmnId,omitempty"`
 
-	Mnc string `json:"mnc,omitempty"`
+	Snssai Snssai `json:"snssai,omitempty"`
+
+	DnnQos []DnnQos `json:"dnnQos,omitempty"`
+
+	PccRules []PccRule `json:"pccRules,omitempty"`
 }
