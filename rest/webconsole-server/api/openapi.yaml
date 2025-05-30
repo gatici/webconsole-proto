@@ -1,0 +1,377 @@
+openapi: 3.0.0
+info:
+  description: "API for managing access, mobility, policy, session and PLMN information."
+  title: WebConsole NFConfig API
+  version: 1.0.0
+servers:
+- url: http://localhost:9090
+paths:
+  /nfconfig/access-mobility:
+    get:
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/AccessAndMobility'
+                type: array
+          description: List of access and mobility configs
+      summary: Get Access and Mobility Configuration
+  /nfconfig/plmn:
+    get:
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/PlmnId'
+                type: array
+          description: List of PLMN IDs
+      summary: Get PLMN ID Configuration
+  /nfconfig/plmn-snssai:
+    get:
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/PlmnSnssai'
+                type: array
+          description: List of PLMN-SNSSAI
+      summary: Get PLMN-SNSSAI Configuration
+  /nfconfig/policy-control:
+    get:
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/PolicyControl'
+                type: array
+          description: List of policy control configurations
+      summary: Get Policy Control Configuration
+  /nfconfig/session-management:
+    get:
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/SessionManagement'
+                type: array
+          description: List of session management configurations
+      summary: Get Session Management Configuration
+components:
+  schemas:
+    AccessAndMobility:
+      example:
+        snssai:
+          sd: sd
+          sst: 0
+        plmnId:
+          mnc: mnc
+          mcc: mcc
+        tacs:
+        - tacs
+        - tacs
+      properties:
+        plmnId:
+          $ref: '#/components/schemas/PlmnId'
+        snssai:
+          $ref: '#/components/schemas/Snssai'
+        tacs:
+          items:
+            type: string
+          type: array
+      type: object
+    PlmnId:
+      example:
+        mnc: mnc
+        mcc: mcc
+      properties:
+        mcc:
+          type: string
+        mnc:
+          type: string
+      type: object
+    Snssai:
+      example:
+        sd: sd
+        sst: 0
+      properties:
+        sst:
+          type: integer
+        sd:
+          type: string
+      type: object
+    PlmnSnssai:
+      example:
+        plmnId:
+          mnc: mnc
+          mcc: mcc
+        snssais:
+        - sd: sd
+          sst: 0
+        - sd: sd
+          sst: 0
+      properties:
+        plmnId:
+          $ref: '#/components/schemas/PlmnId'
+        snssais:
+          items:
+            $ref: '#/components/schemas/Snssai'
+          type: array
+      type: object
+    PolicyControl:
+      example:
+        pccRules:
+        - qos:
+            maxBrUl: maxBrUl
+            maxBrDl: maxBrDl
+            fiveQi: 1
+            arp:
+              pc: NOT_PREEMPT
+              priorityLevel: 5
+              pv: NOT_PREEMPTABLE
+          flows:
+          - description: description
+            direction: DOWNLINK
+            status: ENABLED-UPLINK
+          - description: description
+            direction: DOWNLINK
+            status: ENABLED-UPLINK
+          ruleId: ruleId
+          precedence: 5
+        - qos:
+            maxBrUl: maxBrUl
+            maxBrDl: maxBrDl
+            fiveQi: 1
+            arp:
+              pc: NOT_PREEMPT
+              priorityLevel: 5
+              pv: NOT_PREEMPTABLE
+          flows:
+          - description: description
+            direction: DOWNLINK
+            status: ENABLED-UPLINK
+          - description: description
+            direction: DOWNLINK
+            status: ENABLED-UPLINK
+          ruleId: ruleId
+          precedence: 5
+        snssai:
+          sd: sd
+          sst: 0
+        dnnQos:
+        - mbrDownlink: mbrDownlink
+          mbrUplink: mbrUplink
+          fiveQi: 0
+          arpPriorityLevel: 6
+          dnnName: dnnName
+        - mbrDownlink: mbrDownlink
+          mbrUplink: mbrUplink
+          fiveQi: 0
+          arpPriorityLevel: 6
+          dnnName: dnnName
+        plmnId:
+          mnc: mnc
+          mcc: mcc
+      properties:
+        plmnId:
+          $ref: '#/components/schemas/PlmnId'
+        snssai:
+          $ref: '#/components/schemas/Snssai'
+        dnnQos:
+          items:
+            $ref: '#/components/schemas/DnnQos'
+          type: array
+        pccRules:
+          items:
+            $ref: '#/components/schemas/PccRule'
+          type: array
+      type: object
+    DnnQos:
+      example:
+        mbrDownlink: mbrDownlink
+        mbrUplink: mbrUplink
+        fiveQi: 0
+        arpPriorityLevel: 6
+        dnnName: dnnName
+      properties:
+        dnnName:
+          type: string
+        mbrUplink:
+          type: string
+        mbrDownlink:
+          type: string
+        fiveQi:
+          type: integer
+        arpPriorityLevel:
+          type: integer
+      type: object
+    PccRule:
+      example:
+        qos:
+          maxBrUl: maxBrUl
+          maxBrDl: maxBrDl
+          fiveQi: 1
+          arp:
+            pc: NOT_PREEMPT
+            priorityLevel: 5
+            pv: NOT_PREEMPTABLE
+        flows:
+        - description: description
+          direction: DOWNLINK
+          status: ENABLED-UPLINK
+        - description: description
+          direction: DOWNLINK
+          status: ENABLED-UPLINK
+        ruleId: ruleId
+        precedence: 5
+      properties:
+        ruleId:
+          type: string
+        flows:
+          items:
+            $ref: '#/components/schemas/PccFlow'
+          type: array
+        qos:
+          $ref: '#/components/schemas/PccQos'
+        precedence:
+          type: integer
+      type: object
+    PccFlow:
+      example:
+        description: description
+        direction: DOWNLINK
+        status: ENABLED-UPLINK
+      properties:
+        description:
+          type: string
+        direction:
+          enum:
+          - DOWNLINK
+          - UPLINK
+          - BIDIRECTIONAL
+          - UNSPECIFIED
+          type: string
+        status:
+          enum:
+          - ENABLED-UPLINK
+          - ENABLED-DOWNLINK
+          - ENABLED
+          - DISABLED
+          - REMOVED
+          type: string
+      type: object
+    PccQos:
+      example:
+        maxBrUl: maxBrUl
+        maxBrDl: maxBrDl
+        fiveQi: 1
+        arp:
+          pc: NOT_PREEMPT
+          priorityLevel: 5
+          pv: NOT_PREEMPTABLE
+      properties:
+        fiveQi:
+          type: integer
+        maxBrUl:
+          type: string
+        maxBrDl:
+          type: string
+        arp:
+          $ref: '#/components/schemas/Arp'
+      type: object
+    Arp:
+      example:
+        pc: NOT_PREEMPT
+        priorityLevel: 5
+        pv: NOT_PREEMPTABLE
+      properties:
+        priorityLevel:
+          type: integer
+        pc:
+          enum:
+          - NOT_PREEMPT
+          - MAY_PREEMPT
+          type: string
+        pv:
+          enum:
+          - NOT_PREEMPTABLE
+          - PREEMPTABLE
+          type: string
+      type: object
+    SessionManagement:
+      example:
+        sliceName: sliceName
+        snssai:
+          sd: sd
+          sst: 0
+        ipDomain:
+        - dnsIpv4: dnsIpv4
+          dnnName: dnnName
+          ueSubnet: ueSubnet
+          mtu: 0
+        - dnsIpv4: dnsIpv4
+          dnnName: dnnName
+          ueSubnet: ueSubnet
+          mtu: 0
+        gnbNames:
+        - gnbNames
+        - gnbNames
+        upf:
+          hostname: hostname
+          port: 6
+        plmnId:
+          mnc: mnc
+          mcc: mcc
+      properties:
+        sliceName:
+          type: string
+        plmnId:
+          $ref: '#/components/schemas/PlmnId'
+        snssai:
+          $ref: '#/components/schemas/Snssai'
+        ipDomain:
+          items:
+            $ref: '#/components/schemas/IpDomain'
+          type: array
+        upf:
+          $ref: '#/components/schemas/Upf'
+        gnbNames:
+          items:
+            type: string
+          type: array
+      type: object
+    IpDomain:
+      example:
+        dnsIpv4: dnsIpv4
+        dnnName: dnnName
+        ueSubnet: ueSubnet
+        mtu: 0
+      properties:
+        dnnName:
+          type: string
+        dnsIpv4:
+          type: string
+        ueSubnet:
+          type: string
+        mtu:
+          type: integer
+      type: object
+    Upf:
+      example:
+        hostname: hostname
+        port: 6
+      properties:
+        hostname:
+          type: string
+        port:
+          type: integer
+      type: object

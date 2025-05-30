@@ -1,5 +1,23 @@
 {
   "dependencies": {
-    "@openapitools/openapi-generator-cli": "^2.20.0"
-  }
+    "@openapitools/openapi-generator-cli": "^2.20.2"
+  },
+  "name": "webconsole-proto",
+  "description": "PoC for the Aether network function configuration system.",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gatici/webconsole-proto.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gatici/webconsole-proto/issues"
+  },
+  "homepage": "https://github.com/gatici/webconsole-proto#readme"
 }
