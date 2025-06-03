@@ -122,7 +122,7 @@ components:
         plmnId:
           mnc: mnc
           mcc: mcc
-        snssais:
+        sNssaiList:
         - sd: sd
           sst: 0
         - sd: sd
@@ -130,13 +130,13 @@ components:
       properties:
         plmnId:
           $ref: '#/components/schemas/PlmnId'
-        snssais:
+        sNssaiList:
           items:
             $ref: '#/components/schemas/Snssai'
           type: array
       required:
       - plmnId
-      - snssais
+      - sNssaiList
       type: object
     PolicyControl:
       example:
@@ -146,9 +146,9 @@ components:
             maxBrDl: maxBrDl
             fiveQi: 1
             arp:
-              pc: NOT_PREEMPT
               priorityLevel: 5
-              pv: NOT_PREEMPTABLE
+              preemptCap: NOT_PREEMPT
+              preemptVuln: NOT_PREEMPTABLE
           flows:
           - description: description
             direction: DOWNLINK
@@ -163,9 +163,9 @@ components:
             maxBrDl: maxBrDl
             fiveQi: 1
             arp:
-              pc: NOT_PREEMPT
               priorityLevel: 5
-              pv: NOT_PREEMPTABLE
+              preemptCap: NOT_PREEMPT
+              preemptVuln: NOT_PREEMPTABLE
           flows:
           - description: description
             direction: DOWNLINK
@@ -240,9 +240,9 @@ components:
           maxBrDl: maxBrDl
           fiveQi: 1
           arp:
-            pc: NOT_PREEMPT
             priorityLevel: 5
-            pv: NOT_PREEMPTABLE
+            preemptCap: NOT_PREEMPT
+            preemptVuln: NOT_PREEMPTABLE
         flows:
         - description: description
           direction: DOWNLINK
@@ -302,9 +302,9 @@ components:
         maxBrDl: maxBrDl
         fiveQi: 1
         arp:
-          pc: NOT_PREEMPT
           priorityLevel: 5
-          pv: NOT_PREEMPTABLE
+          preemptCap: NOT_PREEMPT
+          preemptVuln: NOT_PREEMPTABLE
       properties:
         fiveQi:
           type: integer
@@ -322,26 +322,26 @@ components:
       type: object
     Arp:
       example:
-        pc: NOT_PREEMPT
         priorityLevel: 5
-        pv: NOT_PREEMPTABLE
+        preemptCap: NOT_PREEMPT
+        preemptVuln: NOT_PREEMPTABLE
       properties:
         priorityLevel:
           type: integer
-        pc:
+        preemptCap:
           enum:
           - NOT_PREEMPT
           - MAY_PREEMPT
           type: string
-        pv:
+        preemptVuln:
           enum:
           - NOT_PREEMPTABLE
           - PREEMPTABLE
           type: string
       required:
-      - pc
+      - preemptCap
+      - preemptVuln
       - priorityLevel
-      - pv
       type: object
     SessionManagement:
       example:

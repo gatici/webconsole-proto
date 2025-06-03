@@ -115,11 +115,11 @@ components:
       type: object
       required:
         - plmnId
-        - snssais
+        - sNssaiList
       properties:
         plmnId:
           $ref: '#/components/schemas/PlmnId'
-        snssais:
+        sNssaiList:
           type: array
           items:
             $ref: '#/components/schemas/Snssai'
@@ -217,15 +217,15 @@ components:
       type: object
       required:
         - priorityLevel
-        - pc
-        - pv
+        - preemptCap
+        - preemptVuln
       properties:
         priorityLevel:
           type: integer
-        pc:
+        preemptCap:
           type: string
           enum: [NOT_PREEMPT, MAY_PREEMPT]
-        pv:
+        preemptVuln:
           type: string
           enum: [NOT_PREEMPTABLE, PREEMPTABLE]
 

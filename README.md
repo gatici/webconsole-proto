@@ -67,7 +67,7 @@ go build -o bin/rest-client rest/cmd/client/main.go
 ```
 npx openapi-generator-cli version
 
-openapi-generator-cli generate \
+sudo openapi-generator-cli generate \
   -i ./webconsole-api.yaml \
   -g go-gin-server \
   -o ./webconsole-server \

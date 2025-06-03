@@ -13,7 +13,7 @@ type Arp struct {
 
 	PriorityLevel int32 `json:"priorityLevel"`
 
-	Pc string `json:"pc"`
+	PreemptCap string `json:"preemptCap"`
 
-	Pv string `json:"pv"`
+	PreemptVuln string `json:"preemptVuln"`
 }

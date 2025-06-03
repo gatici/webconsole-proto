@@ -13,5 +13,5 @@ type PlmnSnssai struct {
 
 	PlmnId PlmnId `json:"plmnId"`
 
-	Snssais []Snssai `json:"snssais"`
+	SNssaiList []Snssai `json:"sNssaiList"`
 }
