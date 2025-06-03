@@ -5,7 +5,7 @@ info:
   description: API for managing access, mobility, policy, session and PLMN information.
 
 servers:
-  - url: http://localhost:9090
+  - url: https://localhost:9090
 
 paths:
   /nfconfig/access-mobility:
@@ -77,6 +77,9 @@ components:
   schemas:
     AccessAndMobility:
       type: object
+      required:
+        - plmnId
+        - snssai
       properties:
         plmnId:
           $ref: '#/components/schemas/PlmnId'
@@ -89,6 +92,9 @@ components:
 
     PlmnId:
       type: object
+      required:
+        - mcc
+        - mnc
       properties:
         mcc:
           type: string
@@ -97,6 +103,8 @@ components:
 
     Snssai:
       type: object
+      required:
+        - sst
       properties:
         sst:
           type: integer
@@ -105,6 +113,9 @@ components:
 
     PlmnSnssai:
       type: object
+      required:
+        - plmnId
+        - snssais
       properties:
         plmnId:
           $ref: '#/components/schemas/PlmnId'
@@ -115,6 +126,10 @@ components:
 
     PolicyControl:
       type: object
+      required:
+        - plmnId
+        - snssai
+        - pccRules
       properties:
         plmnId:
           $ref: '#/components/schemas/PlmnId'
@@ -131,6 +146,10 @@ components:
 
     DnnQos:
       type: object
+      required:
+        - dnnName
+        - mbrUplink
+        - mbrDownlink
       properties:
         dnnName:
           type: string
@@ -145,6 +164,11 @@ components:
 
     PccRule:
       type: object
+      required:
+        - ruleId
+        - flows
+        - qos
+        - precedence
       properties:
         ruleId:
           type: string
@@ -159,6 +183,9 @@ components:
 
     PccFlow:
       type: object
+      required:
+        - description
+        - direction
       properties:
         description:
           type: string
@@ -171,6 +198,11 @@ components:
 
     PccQos:
       type: object
+      required:
+        - fiveQi
+        - maxBrDl
+        - maxBrUl
+        - arp
       properties:
         fiveQi:
           type: integer
@@ -183,6 +215,10 @@ components:
 
     Arp:
       type: object
+      required:
+        - priorityLevel
+        - pc
+        - pv
       properties:
         priorityLevel:
           type: integer
@@ -195,6 +231,10 @@ components:
 
     SessionManagement:
       type: object
+      required:
+        - sliceName
+        - plmnId
+        - snssai
       properties:
         sliceName:
           type: string
@@ -215,6 +255,11 @@ components:
 
     IpDomain:
       type: object
+      required:
+        - dnnName
+        - dnsIpv4
+        - ueSubnet
+        - mtu
       properties:
         dnnName:
           type: string
@@ -227,6 +272,8 @@ components:
 
     Upf:
       type: object
+      required:
+        - hostname
       properties:
         hostname:
           type: string

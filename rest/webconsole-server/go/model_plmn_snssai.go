@@ -11,7 +11,7 @@ package openapi
 
 type PlmnSnssai struct {
 
-	PlmnId PlmnId `json:"plmnId,omitempty"`
+	PlmnId PlmnId `json:"plmnId"`
 
-	Snssais []Snssai `json:"snssais,omitempty"`
+	Snssais []Snssai `json:"snssais"`
 }

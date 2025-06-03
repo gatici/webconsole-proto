@@ -11,11 +11,11 @@ package openapi
 
 type PccQos struct {
 
-	FiveQi int32 `json:"fiveQi,omitempty"`
+	FiveQi int32 `json:"fiveQi"`
 
-	MaxBrUl string `json:"maxBrUl,omitempty"`
+	MaxBrUl string `json:"maxBrUl"`
 
-	MaxBrDl string `json:"maxBrDl,omitempty"`
+	MaxBrDl string `json:"maxBrDl"`
 
-	Arp Arp `json:"arp,omitempty"`
+	Arp Arp `json:"arp"`
 }

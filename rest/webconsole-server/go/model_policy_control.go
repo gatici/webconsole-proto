@@ -11,11 +11,11 @@ package openapi
 
 type PolicyControl struct {
 
-	PlmnId PlmnId `json:"plmnId,omitempty"`
+	PlmnId PlmnId `json:"plmnId"`
 
-	Snssai Snssai `json:"snssai,omitempty"`
+	Snssai Snssai `json:"snssai"`
 
 	DnnQos []DnnQos `json:"dnnQos,omitempty"`
 
-	PccRules []PccRule `json:"pccRules,omitempty"`
+	PccRules []PccRule `json:"pccRules"`
 }

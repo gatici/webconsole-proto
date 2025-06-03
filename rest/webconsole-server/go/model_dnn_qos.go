@@ -11,11 +11,11 @@ package openapi
 
 type DnnQos struct {
 
-	DnnName string `json:"dnnName,omitempty"`
+	DnnName string `json:"dnnName"`
 
-	MbrUplink string `json:"mbrUplink,omitempty"`
+	MbrUplink string `json:"mbrUplink"`
 
-	MbrDownlink string `json:"mbrDownlink,omitempty"`
+	MbrDownlink string `json:"mbrDownlink"`
 
 	FiveQi int32 `json:"fiveQi,omitempty"`
 

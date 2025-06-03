@@ -11,7 +11,7 @@ package openapi
 
 type Snssai struct {
 
-	Sst int32 `json:"sst,omitempty"`
+	Sst int32 `json:"sst"`
 
 	Sd string `json:"sd,omitempty"`
 }

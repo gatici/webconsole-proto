@@ -11,9 +11,9 @@ package openapi
 
 type Arp struct {
 
-	PriorityLevel int32 `json:"priorityLevel,omitempty"`
+	PriorityLevel int32 `json:"priorityLevel"`
 
-	Pc string `json:"pc,omitempty"`
+	Pc string `json:"pc"`
 
-	Pv string `json:"pv,omitempty"`
+	Pv string `json:"pv"`
 }

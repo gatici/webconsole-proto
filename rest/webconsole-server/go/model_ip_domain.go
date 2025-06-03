@@ -11,11 +11,11 @@ package openapi
 
 type IpDomain struct {
 
-	DnnName string `json:"dnnName,omitempty"`
+	DnnName string `json:"dnnName"`
 
-	DnsIpv4 string `json:"dnsIpv4,omitempty"`
+	DnsIpv4 string `json:"dnsIpv4"`
 
-	UeSubnet string `json:"ueSubnet,omitempty"`
+	UeSubnet string `json:"ueSubnet"`
 
-	Mtu int32 `json:"mtu,omitempty"`
+	Mtu int32 `json:"mtu"`
 }

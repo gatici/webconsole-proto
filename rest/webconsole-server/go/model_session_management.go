@@ -11,11 +11,11 @@ package openapi
 
 type SessionManagement struct {
 
-	SliceName string `json:"sliceName,omitempty"`
+	SliceName string `json:"sliceName"`
 
-	PlmnId PlmnId `json:"plmnId,omitempty"`
+	PlmnId PlmnId `json:"plmnId"`
 
-	Snssai Snssai `json:"snssai,omitempty"`
+	Snssai Snssai `json:"snssai"`
 
 	IpDomain []IpDomain `json:"ipDomain,omitempty"`
 

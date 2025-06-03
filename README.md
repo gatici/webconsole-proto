@@ -70,5 +70,7 @@ npx openapi-generator-cli version
 openapi-generator-cli generate \
   -i ./webconsole-api.yaml \
   -g go-gin-server \
-  -o ./webconsole-server
+  -o ./webconsole-server \
+  --additional-properties=validateRequired=true
+
 ```

@@ -11,7 +11,7 @@ package openapi
 
 type PlmnId struct {
 
-	Mcc string `json:"mcc,omitempty"`
+	Mcc string `json:"mcc"`
 
-	Mnc string `json:"mnc,omitempty"`
+	Mnc string `json:"mnc"`
 }

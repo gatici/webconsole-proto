@@ -11,11 +11,11 @@ package openapi
 
 type PccRule struct {
 
-	RuleId string `json:"ruleId,omitempty"`
+	RuleId string `json:"ruleId"`
 
-	Flows []PccFlow `json:"flows,omitempty"`
+	Flows []PccFlow `json:"flows"`
 
-	Qos PccQos `json:"qos,omitempty"`
+	Qos PccQos `json:"qos"`
 
-	Precedence int32 `json:"precedence,omitempty"`
+	Precedence int32 `json:"precedence"`
 }

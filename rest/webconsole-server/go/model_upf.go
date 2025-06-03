@@ -11,7 +11,7 @@ package openapi
 
 type Upf struct {
 
-	Hostname string `json:"hostname,omitempty"`
+	Hostname string `json:"hostname"`
 
 	Port int32 `json:"port,omitempty"`
 }

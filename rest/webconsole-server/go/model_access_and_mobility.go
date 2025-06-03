@@ -11,9 +11,9 @@ package openapi
 
 type AccessAndMobility struct {
 
-	PlmnId PlmnId `json:"plmnId,omitempty"`
+	PlmnId PlmnId `json:"plmnId"`
 
-	Snssai Snssai `json:"snssai,omitempty"`
+	Snssai Snssai `json:"snssai"`
 
 	Tacs []string `json:"tacs,omitempty"`
 }

@@ -11,9 +11,9 @@ package openapi
 
 type PccFlow struct {
 
-	Description string `json:"description,omitempty"`
+	Description string `json:"description"`
 
-	Direction string `json:"direction,omitempty"`
+	Direction string `json:"direction"`
 
 	Status string `json:"status,omitempty"`
 }
