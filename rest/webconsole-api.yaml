@@ -5,7 +5,7 @@ info:
   description: API for managing access, mobility, policy, session and PLMN information.
 
 servers:
-  - url: https://localhost:9090
+  - url: https://localhost:5001
 
 paths:
   /nfconfig/access-mobility:
@@ -20,6 +20,11 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/AccessAndMobility'
+        '404':
+          description: Resource not found
+        '500':
+          description: Internal server error
+
 
   /nfconfig/plmn:
     get:
@@ -33,6 +38,10 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/PlmnId'
+        '404':
+          description: Resource not found
+        '500':
+          description: Internal server error
 
   /nfconfig/plmn-snssai:
     get:
@@ -46,6 +55,10 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/PlmnSnssai'
+        '404':
+          description: Resource not found
+        '500':
+          description: Internal server error
 
   /nfconfig/policy-control:
     get:
@@ -59,6 +72,10 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/PolicyControl'
+        '404':
+          description: Resource not found
+        '500':
+          description: Internal server error
 
   /nfconfig/session-management:
     get:
@@ -72,6 +89,10 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/SessionManagement'
+        '404':
+          description: Resource not found
+        '500':
+          description: Internal server error
 
 components:
   schemas:
@@ -191,10 +212,19 @@ components:
           type: string
         direction:
           type: string
-          enum: [DOWNLINK, UPLINK, BIDIRECTIONAL, UNSPECIFIED]
+          enum:
+          - DOWNLINK
+          - UPLINK
+          - BIDIRECTIONAL
+          - UNSPECIFIED
         status:
           type: string
-          enum: [ENABLED-UPLINK, ENABLED-DOWNLINK, ENABLED, DISABLED, REMOVED]
+          enum:
+          - ENABLED-UPLINK
+          - ENABLED-DOWNLINK
+          - ENABLED
+          - DISABLED
+          - REMOVED
 
     PccQos:
       type: object
@@ -224,10 +254,14 @@ components:
           type: integer
         preemptCap:
           type: string
-          enum: [NOT_PREEMPT, MAY_PREEMPT]
+          enum:
+          - NOT_PREEMPT
+          - MAY_PREEMPT
         preemptVuln:
           type: string
-          enum: [NOT_PREEMPTABLE, PREEMPTABLE]
+          enum:
+          - NOT_PREEMPTABLE
+          - PREEMPTABLE
 
     SessionManagement:
       type: object

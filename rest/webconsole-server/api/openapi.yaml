@@ -4,7 +4,7 @@ info:
   title: WebConsole NFConfig API
   version: 1.0.0
 servers:
-- url: https://localhost:9090
+- url: https://localhost:5001
 paths:
   /nfconfig/access-mobility:
     get:
@@ -17,6 +17,10 @@ paths:
                   $ref: '#/components/schemas/AccessAndMobility'
                 type: array
           description: List of access and mobility configs
+        "404":
+          description: Resource not found
+        "500":
+          description: Internal server error
       summary: Get Access and Mobility Configuration
   /nfconfig/plmn:
     get:
@@ -29,6 +33,10 @@ paths:
                   $ref: '#/components/schemas/PlmnId'
                 type: array
           description: List of PLMN IDs
+        "404":
+          description: Resource not found
+        "500":
+          description: Internal server error
       summary: Get PLMN ID Configuration
   /nfconfig/plmn-snssai:
     get:
@@ -41,6 +49,10 @@ paths:
                   $ref: '#/components/schemas/PlmnSnssai'
                 type: array
           description: List of PLMN-SNSSAI
+        "404":
+          description: Resource not found
+        "500":
+          description: Internal server error
       summary: Get PLMN-SNSSAI Configuration
   /nfconfig/policy-control:
     get:
@@ -53,6 +65,10 @@ paths:
                   $ref: '#/components/schemas/PolicyControl'
                 type: array
           description: List of policy control configurations
+        "404":
+          description: Resource not found
+        "500":
+          description: Internal server error
       summary: Get Policy Control Configuration
   /nfconfig/session-management:
     get:
@@ -65,6 +81,10 @@ paths:
                   $ref: '#/components/schemas/SessionManagement'
                 type: array
           description: List of session management configurations
+        "404":
+          description: Resource not found
+        "500":
+          description: Internal server error
       summary: Get Session Management Configuration
 components:
   schemas:
