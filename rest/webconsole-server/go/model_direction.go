@@ -9,11 +9,12 @@
 
 package openapi
 
-type Arp struct {
+type Direction string
 
-	PriorityLevel int32 `json:"priorityLevel"`
-
-	PreemptCap PreemptCap `json:"preemptCap"`
-
-	PreemptVuln PreemptVuln `json:"preemptVuln"`
-}
+// List of Direction
+const (
+	DOWNLINK Direction = "DOWNLINK"
+	UPLINK Direction = "UPLINK"
+	BIDIRECTIONAL Direction = "BIDIRECTIONAL"
+	UNSPECIFIED Direction = "UNSPECIFIED"
+)

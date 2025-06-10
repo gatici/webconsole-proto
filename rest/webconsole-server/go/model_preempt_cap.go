@@ -9,11 +9,10 @@
 
 package openapi
 
-type Arp struct {
+type PreemptCap string
 
-	PriorityLevel int32 `json:"priorityLevel"`
-
-	PreemptCap PreemptCap `json:"preemptCap"`
-
-	PreemptVuln PreemptVuln `json:"preemptVuln"`
-}
+// List of PreemptCap
+const (
+	NOT_PREEMPT PreemptCap = "NOT_PREEMPT"
+	MAY_PREEMPT PreemptCap = "MAY_PREEMPT"
+)

@@ -5,6 +5,7 @@ go/README.md
 go/api_default.go
 go/model_access_and_mobility.go
 go/model_arp.go
+go/model_direction.go
 go/model_dnn_qos.go
 go/model_ip_domain.go
 go/model_pcc_flow.go
@@ -13,8 +14,11 @@ go/model_pcc_rule.go
 go/model_plmn_id.go
 go/model_plmn_snssai.go
 go/model_policy_control.go
+go/model_preempt_cap.go
+go/model_preempt_vuln.go
 go/model_session_management.go
 go/model_snssai.go
+go/model_status.go
 go/model_upf.go
 go/routers.go
 main.go

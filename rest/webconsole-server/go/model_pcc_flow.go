@@ -13,7 +13,7 @@ type PccFlow struct {
 
 	Description string `json:"description"`
 
-	Direction string `json:"direction"`
+	Direction Direction `json:"direction"`
 
-	Status string `json:"status,omitempty"`
+	Status Status `json:"status,omitempty"`
 }

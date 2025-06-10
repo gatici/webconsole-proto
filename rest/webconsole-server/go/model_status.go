@@ -9,11 +9,13 @@
 
 package openapi
 
-type Arp struct {
+type Status string
 
-	PriorityLevel int32 `json:"priorityLevel"`
-
-	PreemptCap PreemptCap `json:"preemptCap"`
-
-	PreemptVuln PreemptVuln `json:"preemptVuln"`
-}
+// List of Status
+const (
+	ENABLED_UPLINK Status = "ENABLED-UPLINK"
+	ENABLED_DOWNLINK Status = "ENABLED-DOWNLINK"
+	ENABLED Status = "ENABLED"
+	DISABLED Status = "DISABLED"
+	REMOVED Status = "REMOVED"
+)

@@ -298,20 +298,9 @@ components:
         description:
           type: string
         direction:
-          enum:
-          - DOWNLINK
-          - UPLINK
-          - BIDIRECTIONAL
-          - UNSPECIFIED
-          type: string
+          $ref: '#/components/schemas/Direction'
         status:
-          enum:
-          - ENABLED-UPLINK
-          - ENABLED-DOWNLINK
-          - ENABLED
-          - DISABLED
-          - REMOVED
-          type: string
+          $ref: '#/components/schemas/Status'
       required:
       - description
       - direction
@@ -349,15 +338,9 @@ components:
         priorityLevel:
           type: integer
         preemptCap:
-          enum:
-          - NOT_PREEMPT
-          - MAY_PREEMPT
-          type: string
+          $ref: '#/components/schemas/PreemptCap'
         preemptVuln:
-          enum:
-          - NOT_PREEMPTABLE
-          - PREEMPTABLE
-          type: string
+          $ref: '#/components/schemas/PreemptVuln'
       required:
       - preemptCap
       - preemptVuln
@@ -442,3 +425,28 @@ components:
       required:
       - hostname
       type: object
+    Status:
+      enum:
+      - ENABLED-UPLINK
+      - ENABLED-DOWNLINK
+      - ENABLED
+      - DISABLED
+      - REMOVED
+      type: string
+    Direction:
+      enum:
+      - DOWNLINK
+      - UPLINK
+      - BIDIRECTIONAL
+      - UNSPECIFIED
+      type: string
+    PreemptCap:
+      enum:
+      - NOT_PREEMPT
+      - MAY_PREEMPT
+      type: string
+    PreemptVuln:
+      enum:
+      - NOT_PREEMPTABLE
+      - PREEMPTABLE
+      type: string
