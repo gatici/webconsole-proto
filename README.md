@@ -62,7 +62,7 @@ go build -o bin/rest-client rest/cmd/client/main.go
 ./bin/rest-client
 ```
 
-### Generate Code
+### Generate Server-Side Code
 
 ```
 npx openapi-generator-cli version
@@ -73,4 +73,14 @@ sudo openapi-generator-cli generate \
   -o ./webconsole-server \
   --additional-properties=validateRequired=true
 
+```
+
+### Generate Client-Side Code
+
+```
+sudo openapi-generator-cli generate \
+  -i ./webconsole-api.yaml \
+  -g go \
+  -o ./nfconfig-client \
+  --additional-properties=packageName=webconsoleClient,validateRequired=true
 ```

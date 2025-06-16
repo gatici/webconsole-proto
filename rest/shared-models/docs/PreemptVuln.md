@@ -1,0 +1,13 @@
+# PreemptVuln
+
+## Enum
+
+
+* `NOT_PREEMPTABLE` (value: `"NOT_PREEMPTABLE"`)
+
+* `PREEMPTABLE` (value: `"PREEMPTABLE"`)
+
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
+
